@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<h1>Guides</h1>
+<%= form_for :guides_search_form, url: guides_path, method: :get do |f| %>
+  Language (Code format) : <%= f.text_field :language %>
+  Activities : <%= f.text_field :activity %>
+  <%= f.submit "Search" %>
+<% end %>
+<table>
+  <thead>
+  <tr>
+    <th>Email</th>
+    <th>Languages</th>
+    <th>Activities</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @guides.each do |guide| %>
+    <tr>
+      <td><%= guide.email %></td>
+      <td>
+        <%= guide.languages.pluck(:code).join(", ") %>
+      </td>
+      <td>
+        <%= guide.activities.pluck(:name).join(", ") %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<% if @guides.empty? %>
+  <%= "No Data Found" %>
+<% end %>
+
+<br>
