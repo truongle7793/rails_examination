@@ -1,0 +1,53 @@
+<p>Guide's email: <%= @guide.email %></p>
+<p id="notice"><%= notice %></p>
+<%#= form_for :create_new_review_data, :url => {:controller => :reviews, action: :create}, method: :post do |f| %>
+<!--  Score (1 to 5) : <%#= f.text_field :score %>-->
+<!--  Comment : <%#= f.text_field :comment %>-->
+  <%#= f.hidden_field :guide_id, value: @guide.id %>
+  <%#= f.submit "Add" %>
+<%# end %>
+
+<!--testing using ajax-->
+<%= form_with(model: @review) do |f| %>
+  Score (1 to 5) : <%= f.text_field :score %>
+  Comment : <%= f.text_field :comment %>
+  <%= f.hidden_field :guide_id, value: @guide.id %>
+  <%= f.submit "Add" %>
+<% end %>
+
+
+<%#= form_for :create_new_review_data, :url => {:controller => :reviews, action: :create}, :html=>{:id=>"create_new_review",:remote=>true}, method: :post do |f| %>
+<!--  Score (1 to 5) : <%#= f.text_field :score %>-->
+<!--  Comment : <%#= f.text_field :comment %>-->
+  <%#= f.hidden_field :guide_id, value: @guide.id %>
+  <%#= f.submit "Add" %>
+<%# end %>
+
+<table id="reviews_table">
+  <thead>
+  <tr>
+    <th>Comment</th>
+    <th>Score</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @guide.reviews.each do |review| %>
+    <tr id="review_<%= review.id %>">
+      <td>
+        <%= review.comment %>
+      </td>
+      <td>
+        <%= review.score %>
+      </td>
+      <td><%= link_to 'Delete', review_path(review, guide_id: @guide.id), method: 'delete', data: { confirm: 'Are you sure?', :remote => true } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<% if @guide.reviews.empty? %>
+  <%= "No Data Found" %>
+<% end %>
+<p id="test"></p>
+<br>

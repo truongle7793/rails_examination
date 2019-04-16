@@ -1,0 +1,6 @@
+<% unless @review.errors.present? %>
+
+  $("#reviews_table > tbody:last-child").append('<tr id="review_<%= @review.id %>" ><td><%= @review.comment %></td><td><%= @review.score %></td><td><%= link_to "Delete", review_path(@review, guide_id: @review.guide.id), method: "delete", data: { confirm: "Are you sure?" } %></td></tr>');
+
+<% end %>
+$("#notice").html('<%= notice %>')
