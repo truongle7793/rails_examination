@@ -7,6 +7,11 @@ class GuidesController < ApplicationController
     @guides = search(guides_search_params)
   end
 
+  def show
+    @guide = Guide.find(params[:id])
+    @review = Review.new
+  end
+
   private
 
   def guides_search_params
