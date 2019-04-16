@@ -73,3 +73,5 @@ gem "slim-rails"
 
 gem 'bootstrap'
 gem 'jquery-rails'
+
+gem 'fast_jsonapi'
