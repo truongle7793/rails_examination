@@ -25,7 +25,7 @@ end
 
 
 
-10.times do |index|
+100.times do |index|
   Guide.seed(:email,
              {:email => Faker::Internet.email, :activity_ids => random_items([1, 2, 3, 4, 5]),
               :language_ids => random_items([1, 2, 3, 4, 5])})
