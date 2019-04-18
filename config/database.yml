@@ -12,8 +12,8 @@ default: &default
 development:
   <<: *default
   database: development
-  username:
-  password:
+  username: truong
+  password: truongle7793
   socket: /var/lib/mysql/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -22,13 +22,13 @@ development:
 test:
   <<: *default
   database: test
-  username: root
-  password: root
+  username: truong
+  password: truongle7793
   socket: /var/lib/mysql/mysql.sock
 
 production:
   <<: *default
   database: production
-  username:
-  password:
+  username: truong
+  password: truongle7793
   socket: /var/lib/mysql/mysql.sock
