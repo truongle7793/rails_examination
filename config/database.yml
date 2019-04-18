@@ -12,8 +12,9 @@ default: &default
 development:
   <<: *default
   database: development
-  username: root
-  password: root
+  username:
+  password:
+  socket: /var/lib/mysql/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -23,9 +24,11 @@ test:
   database: test
   username: root
   password: root
+  socket: /var/lib/mysql/mysql.sock
 
 production:
   <<: *default
   database: production
-  username: root
-  password: root
+  username:
+  password:
+  socket: /var/lib/mysql/mysql.sock
