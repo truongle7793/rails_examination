@@ -43,8 +43,6 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'better_errors'
   gem "binding_of_caller"
-  gem 'seed-fu', '~> 2.3'
-  gem 'faker'
 end
 
 group :development do
@@ -75,3 +73,6 @@ gem 'bootstrap'
 gem 'jquery-rails'
 
 gem 'fast_jsonapi'
+
+gem 'seed-fu', '~> 2.3'
+gem 'faker'
